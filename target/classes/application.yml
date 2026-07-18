@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: fingoal-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fingoal
+    username: ${DB_USERNAME:fingoal}
+    password: ${DB_PASSWORD:fingoal}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+server:
+  port: 8080
+
+fingoal:
+  jwt:
+    # In production, load this from an environment variable / secrets manager, never hardcode it.
+    secret: ${JWT_SECRET:change-this-to-a-long-random-secret-value-before-deploying-anywhere}
+    access-token-ttl-minutes: 30
+    refresh-token-ttl-days: 30
+
+logging:
+  level:
+    com.fingoal: INFO
