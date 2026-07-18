@@ -3,7 +3,7 @@ spring:
     name: fingoal-backend
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/fingoal
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/fingoal}
     username: ${DB_USERNAME:fingoal}
     password: ${DB_PASSWORD:fingoal}
     driver-class-name: org.postgresql.Driver
@@ -18,7 +18,7 @@ spring:
     open-in-view: false
 
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 fingoal:
   jwt:
